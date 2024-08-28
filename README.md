@@ -31,7 +31,7 @@ LSM（Linux Security Modules）是Linux内核中用于支持各种计算机安�
 
 1. 开源源码路径
 
-https://gitee.com/anolis/ksecure
+Fork from https://gitee.com/anolis/ksecure
 
 2. 编译
 
