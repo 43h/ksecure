@@ -1,0 +1,12 @@
+#策略基本信息
+name: ransomware-protect-policy           #必填: 策略名称
+module: ransomware                        #必填: 勒索病毒防护；禁止修改
+
+
+#勒索病毒防护配置
+switch-on: true                          #必填: 勒索病毒防护开关,true-开启,false-关闭
+kill-process: false                       #必填: 可疑进程处置的动作,true-杀死进程,false-只拦截不杀死
+#decoyFileDir:                            #可选: 增加自定义诱饵文件投放目录(只生效前100个)
+#  - dir: /root
+#whiteList:                               #可选：白名单程序操作诱饵文件时,只阻断不杀死程序进程,且不记录日志(只生效前100个)
+#  - path: /usr/bin/cat

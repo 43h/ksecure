@@ -1,0 +1,45 @@
+syntax = "proto3";
+ 
+package policy;
+
+option go_package="github.com/kubearmor/KubeArmor/protobuf";
+
+message response {
+    int32 status = 1;
+}
+
+message policy {
+    bytes policy = 1;
+}
+
+message baselineResponse {
+    int32 status = 1;
+    string filePath = 2;
+}
+
+message rePolicyObj{
+    string name = 1;
+    string module = 2;
+    int32  severity = 3;
+    string message =4;
+    string action = 5;
+    string matchPaths = 6;
+    bool switch = 7;
+    string decoyFileDir=8;
+    string whiteList=9;
+}
+message policyResponse{
+    repeated rePolicyObj rePolicy =1;
+}
+message policyRequest{
+
+}
+
+service PolicyService {
+    rpc containerPolicy (policy) returns (response);
+    rpc hostPolicy (policy) returns (response);
+    rpc getHostPolicy (policyRequest) returns (policyResponse);
+    rpc baselineScan (policy) returns (baselineResponse);
+    rpc baselineRepair (policy) returns (baselineResponse);
+    rpc baselineBack(policy) returns (baselineResponse);
+}
